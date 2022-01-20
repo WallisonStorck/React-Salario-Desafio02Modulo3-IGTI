@@ -22,8 +22,16 @@ export default class App extends Component {
       fullSalary: newValue,
     });
 
-    console.log(calculateSalaryFrom(newValue));
-    // VALORES CHEGANDO...
+    const { baseINSS, discountINSS, baseIRPF, discountIRPF, netSalary } =
+      calculateSalaryFrom(newValue);
+
+    this.setState({
+      inssBase: baseINSS,
+      inssDiscount: discountINSS,
+      irpfBase: baseIRPF,
+      irpfDiscount: discountIRPF,
+      netSalary,
+    });
   };
 
   render() {
