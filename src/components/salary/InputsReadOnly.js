@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import css from "./Inputs.module.css";
 
 export default class InputsReadOnly extends Component {
   render() {
@@ -7,39 +8,39 @@ export default class InputsReadOnly extends Component {
 
     return (
       <>
-        <label>
-          Base INSS:
-          <input type="number" name="inssBase" value={inssBase} readOnly />
-        </label>
+        <div className={css.inputsDiscounts}>
+          <label className={css.inputsReadOnly}>
+            Base INSS:
+            <input type="text" value={`R$ ${inssBase}`} readOnly />
+          </label>
 
-        <label>
-          Desconto INSS:
-          <input
-            type="number"
-            name="inssDiscount"
-            value={inssDiscount}
-            readOnly
-          />
-        </label>
+          <label className={css.inputsReadOnly}>
+            Desconto INSS:
+            <input
+              type="text"
+              value={`R$ ${inssDiscount.toFixed(2)}`}
+              readOnly
+            />
+          </label>
 
-        <label>
-          Base IRPF:
-          <input type="number" name="irpfBase" value={irpfBase} readOnly />
-        </label>
+          <label className={css.inputsReadOnly}>
+            Base IRPF:
+            <input type="text" value={`R$ ${irpfBase.toFixed(2)}`} readOnly />
+          </label>
 
-        <label>
-          Desconto IRPF:
-          <input
-            type="number"
-            name="irpfDiscount"
-            value={irpfDiscount}
-            readOnly
-          />
-        </label>
+          <label className={css.inputsReadOnly}>
+            Desconto IRPF:
+            <input
+              type="text"
+              value={`R$ ${irpfDiscount.toFixed(2)}`}
+              readOnly
+            />
+          </label>
+        </div>
 
-        <label>
+        <label className={css.inputsReadOnly}>
           Salário liquido:
-          <input type="number" name="netSalary" value={netSalary} readOnly />
+          <input type="text" value={`R$ ${netSalary.toFixed(2)}`} readOnly />
         </label>
       </>
     );

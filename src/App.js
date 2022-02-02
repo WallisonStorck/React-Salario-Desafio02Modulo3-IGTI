@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import InputFullSalary from "./components/salary/InputFullSalary";
 import InputsReadOnly from "./components/salary/InputsReadOnly";
 import { calculateSalaryFrom } from "./components/helpers/salary";
+import ProgressBarSalary from "./components/ProgressBarSalary";
 
 export default class App extends Component {
   constructor() {
@@ -45,8 +46,8 @@ export default class App extends Component {
     } = this.state;
 
     return (
-      <>
-        <h1>React Salário</h1>
+      <div style={{ margin: "30px" }}>
+        <h1 style={{ textAlign: "center" }}>React Salário</h1>
 
         <InputFullSalary
           fullSalary={fullSalary}
@@ -60,7 +61,9 @@ export default class App extends Component {
           irpfDiscount={irpfDiscount}
           netSalary={netSalary}
         />
-      </>
+
+        <ProgressBarSalary />
+      </div>
     );
   }
 }

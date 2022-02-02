@@ -1,0 +1,25 @@
+.progressBarContainer {
+  background-color: cornflowerblue;
+  width: 100%;
+  height: 15px;
+  position: relative;
+}
+
+.progressBar {
+  width: 20%;
+  height: 100%;
+  /* position: absolute; */
+  display: inline-block;
+}
+
+.progressBarINSS {
+  background-color: brown;
+}
+
+.progressBarIRPF {
+  background-color: blueviolet;
+}
+
+.progressBarNetSalary {
+  background-color: chocolate;
+}
