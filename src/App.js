@@ -45,6 +45,10 @@ export default class App extends Component {
       netSalary,
     } = this.state;
 
+    const percentDiscountINSS = ((inssDiscount * 100) / fullSalary).toFixed(2);
+    const percentDiscountIRPF = ((irpfDiscount * 100) / fullSalary).toFixed(2);
+    const percentNetSalary = ((netSalary * 100) / fullSalary).toFixed(2);
+
     return (
       <div style={{ margin: "30px" }}>
         <h1 style={{ textAlign: "center" }}>React Salário</h1>
@@ -62,7 +66,11 @@ export default class App extends Component {
           netSalary={netSalary}
         />
 
-        <ProgressBarSalary />
+        <ProgressBarSalary
+          percentDiscountINSS={percentDiscountINSS}
+          percentDiscountIRPF={percentDiscountIRPF}
+          percentNetSalary={percentNetSalary}
+        />
       </div>
     );
   }
