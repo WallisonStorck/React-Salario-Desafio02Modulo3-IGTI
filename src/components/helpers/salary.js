@@ -103,4 +103,4 @@ function calculateSalaryFrom(fullSalary) {
   };
 }
 
-export { calculateSalaryFrom };
+export { calculateSalaryFrom, round };

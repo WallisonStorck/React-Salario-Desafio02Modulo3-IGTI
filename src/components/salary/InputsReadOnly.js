@@ -15,7 +15,7 @@ export default class InputsReadOnly extends Component {
       percentNetSalary,
     } = this.props;
 
-    console.log(formatCurrency(inssBase));
+    // console.log(formatCurrency(inssBase));
 
     return (
       <>

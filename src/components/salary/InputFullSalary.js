@@ -3,12 +3,12 @@ import React, { Component } from "react";
 export default class InputFullSalary extends Component {
   handleChangeInput = (event) => {
     const { onChangeSalary } = this.props;
-    const newValue = event.target.value;
+    const newValue = +event.target.value;
     onChangeSalary(newValue);
   };
 
   render() {
-    const { fullSalary } = this.props;
+    const { currentValue } = this.props;
 
     return (
       <>
@@ -16,7 +16,8 @@ export default class InputFullSalary extends Component {
           Salário Bruto
           <input
             type="number"
-            value={fullSalary}
+            value={currentValue}
+            step="10"
             onChange={this.handleChangeInput}
           />
         </label>

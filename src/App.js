@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import InputFullSalary from "./components/salary/InputFullSalary";
 import InputsReadOnly from "./components/salary/InputsReadOnly";
-import { calculateSalaryFrom } from "./components/helpers/salary";
+import { calculateSalaryFrom, round } from "./components/helpers/salary";
 import ProgressBarSalary from "./components/ProgressBarSalary";
 
 export default class App extends Component {
@@ -9,7 +9,7 @@ export default class App extends Component {
     super();
 
     this.state = {
-      fullSalary: 0,
+      fullSalary: 1212,
       inssBase: 0,
       inssDiscount: 0,
       irpfBase: 0,
@@ -45,18 +45,16 @@ export default class App extends Component {
       netSalary,
     } = this.state;
 
-    const percentDiscountINSS =
-      ((inssDiscount * 100) / fullSalary).toFixed(2) + "%";
-    const percentDiscountIRPF =
-      ((irpfDiscount * 100) / fullSalary).toFixed(2) + "%";
-    const percentNetSalary = ((netSalary * 100) / fullSalary).toFixed(2) + "%";
+    const percentDiscountINSS = round((inssDiscount * 100) / fullSalary) + "%";
+    const percentDiscountIRPF = round((irpfDiscount * 100) / fullSalary) + "%";
+    const percentNetSalary = round((netSalary * 100) / fullSalary) + "%";
 
     return (
       <div style={{ margin: "30px" }}>
         <h1 style={{ textAlign: "center" }}>React Salário</h1>
 
         <InputFullSalary
-          fullSalary={fullSalary}
+          currentValue={fullSalary}
           onChangeSalary={this.handleChangeInputFullSalary}
         />
 
