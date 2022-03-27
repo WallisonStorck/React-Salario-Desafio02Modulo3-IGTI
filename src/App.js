@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import InputFullSalary from "./components/salary/InputFullSalary";
 import InputsReadOnly from "./components/salary/InputsReadOnly";
-import { calculateSalaryFrom, round } from "./components/helpers/salary";
+import { calculateSalaryFrom } from "./components/helpers/salary";
 import ProgressBarSalary from "./components/ProgressBarSalary";
 
 export default class App extends Component {
@@ -10,11 +10,6 @@ export default class App extends Component {
 
     this.state = {
       fullSalary: 1212,
-      inssBase: 0,
-      inssDiscount: 0,
-      irpfBase: 0,
-      irpfDiscount: 0,
-      netSalary: 0,
     };
   }
 
@@ -22,52 +17,71 @@ export default class App extends Component {
     this.setState({
       fullSalary: newValue,
     });
-
-    const { baseINSS, discountINSS, baseIRPF, discountIRPF, netSalary } =
-      calculateSalaryFrom(newValue);
-
-    this.setState({
-      inssBase: baseINSS,
-      inssDiscount: discountINSS,
-      irpfBase: baseIRPF,
-      irpfDiscount: discountIRPF,
-      netSalary,
-    });
   };
 
   render() {
-    const {
-      fullSalary,
-      inssBase,
-      inssDiscount,
-      irpfBase,
-      irpfDiscount,
-      netSalary,
-    } = this.state;
+    const { fullSalary } = this.state;
 
-    const percentDiscountINSS = round((inssDiscount * 100) / fullSalary) + "%";
-    const percentDiscountIRPF = round((irpfDiscount * 100) / fullSalary) + "%";
-    const percentNetSalary = round((netSalary * 100) / fullSalary) + "%";
+    const salaryObject = calculateSalaryFrom(fullSalary);
+    const {
+      baseINSS,
+      discountINSS,
+      percentDiscountINSS,
+      baseIRPF,
+      discountIRPF,
+      percentDiscountIRPF,
+      netSalary,
+      percentNetSalary,
+    } = salaryObject;
 
     return (
-      <div style={{ margin: "30px" }}>
+      // <div style={{ margin: "30px" }}>
+      <div className="container">
         <h1 style={{ textAlign: "center" }}>React Salário</h1>
 
-        <InputFullSalary
-          currentValue={fullSalary}
-          onChangeSalary={this.handleChangeInputFullSalary}
-        />
+        <div className="row">
+          <InputFullSalary
+            currentValue={fullSalary}
+            onChangeSalary={this.handleChangeInputFullSalary}
+          />
+        </div>
 
-        <InputsReadOnly
-          inssBase={inssBase}
-          inssDiscount={inssDiscount}
-          irpfBase={irpfBase}
-          irpfDiscount={irpfDiscount}
-          netSalary={netSalary}
-          percentDiscountINSS={percentDiscountINSS}
-          percentDiscountIRPF={percentDiscountIRPF}
-          percentNetSalary={percentNetSalary}
-        />
+        <div
+          className="row"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <InputsReadOnly
+            label={"Base INSS:"}
+            color={"black"}
+            value={baseINSS}
+          />
+          <InputsReadOnly
+            label={"Desconto INSS:"}
+            color={"#e67e22"}
+            value={discountINSS}
+            percentage={percentDiscountINSS}
+          />
+          <InputsReadOnly
+            label={"Base IRPF:"}
+            color={"black"}
+            value={baseIRPF}
+          />
+          <InputsReadOnly
+            label={"Desconto IRPF:"}
+            color={"#c0392b"}
+            value={discountIRPF}
+            percentage={percentDiscountIRPF}
+          />
+        </div>
+
+        <div className="row">
+          <InputsReadOnly
+            label={"Salario Liquido:"}
+            color={"#16a085"}
+            value={netSalary}
+            percentage={percentNetSalary}
+          />
+        </div>
 
         <ProgressBarSalary
           percentDiscountINSS={percentDiscountINSS}

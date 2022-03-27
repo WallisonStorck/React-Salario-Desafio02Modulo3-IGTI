@@ -15,6 +15,7 @@ export default class InputFullSalary extends Component {
         <label>
           Salário Bruto
           <input
+            autoFocus
             type="number"
             value={currentValue}
             step="10"
