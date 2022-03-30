@@ -3,7 +3,7 @@ import { formatCurrency, formatPercent } from "../helpers/formatters";
 
 export default class InputsReadOnly extends Component {
   render() {
-    const { label, color, value, percentage } = this.props;
+    const { label, color = "black", value, percentage } = this.props;
 
     const formattedPercentage =
       percentage > 0 ? `(${formatPercent(percentage)})` : "";
@@ -15,7 +15,7 @@ export default class InputsReadOnly extends Component {
           {label}
           <input
             type="text"
-            style={{ color: color }}
+            style={{ color: color, fontWeight: "bold" }}
             value={formattedValue}
             readOnly
           />

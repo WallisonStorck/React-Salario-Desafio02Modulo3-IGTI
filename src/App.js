@@ -4,6 +4,10 @@ import InputsReadOnly from "./components/salary/InputsReadOnly";
 import { calculateSalaryFrom } from "./components/helpers/salary";
 import ProgressBarSalary from "./components/ProgressBarSalary";
 
+const COLOR_INSS = "#e67e22";
+const COLOR_IRPF = "#c0392b";
+const COLOR_NET_SALARY = "#16a085";
+
 export default class App extends Component {
   constructor() {
     super();
@@ -35,7 +39,6 @@ export default class App extends Component {
     } = salaryObject;
 
     return (
-      // <div style={{ margin: "30px" }}>
       <div className="container">
         <h1 style={{ textAlign: "center" }}>React Salário</h1>
 
@@ -50,25 +53,17 @@ export default class App extends Component {
           className="row"
           style={{ display: "flex", justifyContent: "space-between" }}
         >
-          <InputsReadOnly
-            label={"Base INSS:"}
-            color={"black"}
-            value={baseINSS}
-          />
+          <InputsReadOnly label={"Base INSS:"} value={baseINSS} />
           <InputsReadOnly
             label={"Desconto INSS:"}
-            color={"#e67e22"}
+            color={COLOR_INSS}
             value={discountINSS}
             percentage={percentDiscountINSS}
           />
-          <InputsReadOnly
-            label={"Base IRPF:"}
-            color={"black"}
-            value={baseIRPF}
-          />
+          <InputsReadOnly label={"Base IRPF:"} value={baseIRPF} />
           <InputsReadOnly
             label={"Desconto IRPF:"}
-            color={"#c0392b"}
+            color={COLOR_IRPF}
             value={discountIRPF}
             percentage={percentDiscountIRPF}
           />
@@ -77,7 +72,7 @@ export default class App extends Component {
         <div className="row">
           <InputsReadOnly
             label={"Salario Liquido:"}
-            color={"#16a085"}
+            color={COLOR_NET_SALARY}
             value={netSalary}
             percentage={percentNetSalary}
           />
