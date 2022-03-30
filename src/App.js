@@ -83,11 +83,13 @@ export default class App extends Component {
           />
         </div>
 
-        <ProgressBarSalary
-          percentDiscountINSS={percentDiscountINSS}
-          percentDiscountIRPF={percentDiscountIRPF}
-          percentNetSalary={percentNetSalary}
-        />
+        <div className="row">
+          <ProgressBarSalary
+            percentDiscountINSS={percentDiscountINSS}
+            percentDiscountIRPF={percentDiscountIRPF}
+            percentNetSalary={percentNetSalary}
+          />
+        </div>
       </div>
     );
   }

@@ -4,8 +4,12 @@ const brazilianCurrency = Intl.NumberFormat("pt-br", {
   minimumFractionDigits: 2,
 });
 
-function formatCurrency(data) {
-  return brazilianCurrency.format(data);
+function formatCurrency(value) {
+  return brazilianCurrency.format(value);
 }
 
-export { formatCurrency };
+function formatPercent(value) {
+  return `${value.toFixed(2).replace(".", ",")}%`;
+}
+
+export { formatCurrency, formatPercent };

@@ -10,15 +10,15 @@ export default class ProgressBarSalary extends Component {
       <>
         <div className={css.progressBarContainer}>
           <div
-            style={{ width: percentDiscountINSS }}
+            style={{ width: `${percentDiscountINSS}%` }}
             className={`${css.progressBarINSS} ${css.progressBar}`}
           ></div>
           <div
-            style={{ width: percentDiscountIRPF }}
+            style={{ width: `${percentDiscountIRPF}%` }}
             className={`${css.progressBarIRPF} ${css.progressBar}`}
           ></div>
           <div
-            style={{ width: percentNetSalary }}
+            style={{ width: `${percentNetSalary}%` }}
             className={`${css.progressBarNetSalary} ${css.progressBar}`}
           ></div>
         </div>

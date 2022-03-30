@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { formatCurrency } from "../helpers/formatters";
+import { formatCurrency, formatPercent } from "../helpers/formatters";
 
 export default class InputsReadOnly extends Component {
   render() {
     const { label, color, value, percentage } = this.props;
 
-    const formattedPercentage = percentage > 0 ? `(${percentage})%` : "";
+    const formattedPercentage =
+      percentage > 0 ? `(${formatPercent(percentage)})` : "";
     const formattedValue = `${formatCurrency(value)} ${formattedPercentage}`;
 
     return (
