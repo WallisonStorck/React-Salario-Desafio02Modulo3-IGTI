@@ -7,13 +7,14 @@ import ProgressBarSalary from "./components/ProgressBarSalary";
 const COLOR_INSS = "#e67e22";
 const COLOR_IRPF = "#c0392b";
 const COLOR_NET_SALARY = "#16a085";
+const minimalSalary = 1212;
 
 export default class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      fullSalary: 1212,
+      fullSalary: minimalSalary,
     };
   }
 
