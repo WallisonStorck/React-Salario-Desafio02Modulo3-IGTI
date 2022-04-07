@@ -14,7 +14,7 @@
 <br>
 
 <p align="center">
-  <img alt="React Salary" src="./reactsalary.png">
+  <img alt="React Salary" src="./reactSalary.png">
 </p>
 
 <br>
